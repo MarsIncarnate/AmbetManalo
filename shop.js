@@ -108,4 +108,11 @@ $w.onReady(function () {
 
     // Initially, load all products from the first category (you can change this)
     filterProductsByCategory('00000000-000000-000000-000000000001');
+
+    $w('#box41').onViewportEnter(() => {
+        $w('#section17').hide("fade", { duration: 200 })
+    })
+    $w('#box41').onViewportLeave(() => {
+        $w('#section17').show("fade", { duration: 200 })
+    })
 });
