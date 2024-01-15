@@ -71,13 +71,13 @@ $w.onReady(function () {
         $item('#text46').text = itemData.name;
         $item('#text47').text = `$${itemData.price}`;
 
-        const formattedTitle = itemData.name.replace(/\s+/g, '-').toLowerCase();
+        const formattedTitle = itemData.slug.replace(/\s+/g, '-').toLowerCase();
         $item('#imageX7').link = `/products/${formattedTitle}`;
-        $w('#imageX7').onClick(() => {
-            console.log(`/products/${formattedTitle}`)
-            // Navigate to the corresponding item page
-            wixLocationFrontend.to(`/products/${formattedTitle}`);
-        });
+        // $w('#imageX7').onClick(() => {
+        //     console.log(`/products/${formattedTitle}`)
+        //     // Navigate to the corresponding item page
+        //     wixLocationFrontend.to(`/products/${formattedTitle}`);
+        // });
 
         // Link the button to add the product to the cart
         $item('#button1').onClick(() => {
@@ -108,11 +108,12 @@ $w.onReady(function () {
 
     // Initially, load all products from the first category (you can change this)
     filterProductsByCategory('00000000-000000-000000-000000000001');
-
     $w('#box41').onViewportEnter(() => {
+        $w('#section18').hide("fade", { duration: 200 })
         $w('#section17').hide("fade", { duration: 200 })
     })
     $w('#box41').onViewportLeave(() => {
+        $w('#section18').show("fade", { duration: 200 })
         $w('#section17').show("fade", { duration: 200 })
     })
 });
