@@ -13,7 +13,6 @@ $w.onReady(async function () {
 
     // Get the current page's name
     const currentPageName = wixLocation.path[0];
-    console.log(currentPageName)
 
     // Fetch all product slugs from the "Products" collection
     const productSlugs = await getProductsSlugs();
@@ -28,7 +27,6 @@ $w.onReady(async function () {
     // Set the links for next and previous pages
     const nextPageLink = nextPageIndex < productSlugs.length ? `/${basePageName}/${productSlugs[nextPageIndex]}` : null;
     const prevPageLink = prevPageIndex >= 0 ? `/${basePageName}/${productSlugs[prevPageIndex]}` : null;
-    console.log(nextPageLink, prevPageLink)
 
     // Hide or show the next and previous buttons based on availability
     if (nextPageLink) {
@@ -52,6 +50,5 @@ async function getProductsSlugs() {
         .find();
 
     // Extract and return an array of product slugs
-    console.log(results)
     return results.items.map(item => item.slug);
 }
